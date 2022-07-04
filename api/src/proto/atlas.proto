@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package atlasPackage;
+
+service UserService {
+  rpc getUserById(GetUserByIdRequest) returns (UserResponse);
+}
+
+message User {
+  int32 id = 1;
+  string email = 2;
+  string username = 3;
+  string password = 4;
+}
+
+message GetUserByIdRequest {
+  string id = 1;
+}
+
+message UserResponse {
+  User user = 1;
+  string status = 2;
+}
