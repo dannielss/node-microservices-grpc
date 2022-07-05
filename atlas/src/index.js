@@ -1,7 +1,7 @@
+require('./config/database');
 const path = require('path');
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-
 const implementation = require('./implementation');
 
 const PORT = 8082;

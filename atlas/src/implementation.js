@@ -1,22 +1,35 @@
-module.exports =  {
-  async getUserById(call, callback) {
-    const users = [
-      {
-        id: 1,
-        username: 'Daniel',
-        email: "daniel@hotmail.com",
-        password: "1234"
-      },
-      {
-        id: 2,
-        username: 'Daniel',
-        email: "daniel@hotmail.com",
-        password: "1234"
-      },
-    ];
+const User = require('./models/User');
 
-    return callback(null, {
-      user: users.filter(user => user.id === +call.request.id)[0],
+module.exports =  {
+  async getUserById(req, res) {
+    const user = await User.findById(req.request._id);
+
+    return res(null, {
+      user,
+      status: 'ok'
+    });
+  },
+
+  async getAllUsers(req, res) {
+    const users = await User.find();
+
+    return res(null, {
+      users,
+      status: 'ok'
+    })
+  },
+
+  async createUser(req, res) {
+    const { email, username, password } = req.request;
+
+    const user = await User.create({
+      username,
+      password,
+      email
+    });
+
+    return res(null, {
+      user,
       status: 'ok'
     });
   }
