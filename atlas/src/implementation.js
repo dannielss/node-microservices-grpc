@@ -32,5 +32,17 @@ module.exports =  {
       user,
       status: 'ok'
     });
+  },
+
+  async updateUser(req, res) {
+    const { _id, email, username, password } = req.request;
+
+    const user = await User.findByIdAndUpdate({ _id }, { email, username, password });
+
+    console.log(user)
+    return res(null, {
+      message: 'User updated successfully',
+      status: 'ok'
+    });
   }
 };
