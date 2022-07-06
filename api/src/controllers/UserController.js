@@ -22,6 +22,15 @@ class UserController {
 
     return res.json(response);
   }
+
+  async update(req, res) {
+    const { id } = req.params;
+    const { username, password, email } = req.body;
+
+    const response = await AtlasClient.updateUser({ _id: id, username, password, email });
+
+    return res.json(response);
+  }
 }
 
 module.exports = new UserController();
