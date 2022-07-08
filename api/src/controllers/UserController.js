@@ -31,6 +31,14 @@ class UserController {
 
     return res.json(response);
   }
+  
+  async remove(req, res) {
+    const { id } = req.params;
+
+    const response = await AtlasClient.deleteUser({ _id: id });
+
+    return res.json(response);
+  }
 }
 
 module.exports = new UserController();
