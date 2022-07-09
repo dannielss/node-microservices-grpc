@@ -1,4 +1,5 @@
 const User = require('./models/User');
+const jwt = require('jsonwebtoken');
 
 module.exports =  {
   async getUserById(req, res) {
@@ -21,6 +22,15 @@ module.exports =  {
 
   async createUser(req, res) {
     const { email, username, password } = req.request;
+
+    const userExists = await User.findOne({ email });
+
+    if(userExists) {
+      return res(null, {
+        error: 'Email already in use',
+        status: 'error'
+      })   
+    }
 
     const user = await User.create({
       username,
@@ -50,9 +60,37 @@ module.exports =  {
 
     await User.findByIdAndRemove({ _id });
 
-    return res(null, {
+    return res('null', {
       message: 'User deleted successfully',
       status: 'ok'
+    });
+  },
+
+  async authenticate(req, res) {
+    const { email, password } = req.request;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res(null, {
+        error: "User not found",
+        status: 'error'
+      });
+    }
+
+    if(password !== user.password) {
+      return res(null, {
+        error: "Password is incorrect",
+        status: 'error'
+      });
+    }
+
+    const token = jwt.sign({ id: user.id }, 'supersecret', { expiresIn: "1d"});
+
+    return res(null, {
+      user,
+      status: 'ok',
+      token
     });
   }
 };
