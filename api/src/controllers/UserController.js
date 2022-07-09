@@ -8,9 +8,9 @@ class UserController {
 
     return res.json({
       user: {
-        "_id": response.user._id,
-        "email": response.user._id,
-        "username": response.user._id,
+        _id: response.user._id,
+        email: response.user.email,
+        username: response.user.password,
       },
       status: response.status
     });
@@ -30,9 +30,9 @@ class UserController {
 
     return res.json({
       user: {
-        "_id": response.user._id,
-        "email": response.user._id,
-        "username": response.user._id,
+        _id: response.user._id,
+        email: response.user.email,
+        username: response.user.password,
       },
       status: response.status
     });
@@ -75,9 +75,9 @@ class UserController {
 
     return res.json({
       user: {
-        "_id": response.user._id,
-        "email": response.user._id,
-        "username": response.user._id,
+        _id: response.user._id,
+        email: response.user.email,
+        username: response.user.password,
       },
       status: response.status,
       token: response.token

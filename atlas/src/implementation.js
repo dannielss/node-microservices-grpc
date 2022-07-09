@@ -60,7 +60,7 @@ module.exports =  {
 
     await User.findByIdAndRemove({ _id });
 
-    return res('null', {
+    return res(null, {
       message: 'User deleted successfully',
       status: 'ok'
     });
@@ -85,7 +85,7 @@ module.exports =  {
       });
     }
 
-    const token = jwt.sign({ id: user.id }, 'supersecret', { expiresIn: "1d"});
+    const token = jwt.sign({ id: user._id }, 'supersecret', { expiresIn: "1d"});
 
     return res(null, {
       user,
