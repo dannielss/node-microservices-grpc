@@ -6,7 +6,14 @@ class UserController {
 
     const response = await AtlasClient.getUserById({ _id: id });
 
-    return res.json(response);
+    return res.json({
+      user: {
+        "_id": response.user._id,
+        "email": response.user._id,
+        "username": response.user._id,
+      },
+      status: response.status
+    });
   }
 
   async store(req, res) {
@@ -14,7 +21,21 @@ class UserController {
 
     const response = await AtlasClient.createUser({ username, password, email });
 
-    return res.json(response);
+    if(response.error) {
+      return res.json({
+        error: response.error,
+        status: response.status
+      });
+    }
+
+    return res.json({
+      user: {
+        "_id": response.user._id,
+        "email": response.user._id,
+        "username": response.user._id,
+      },
+      status: response.status
+    });
   }
 
   async show(req, res) {
@@ -38,6 +59,29 @@ class UserController {
     const response = await AtlasClient.deleteUser({ _id: id });
 
     return res.json(response);
+  }
+
+  async authenticate(req, res) {
+    const { email, password } = req.body;
+
+    const response = await AtlasClient.authenticate({ email, password });
+
+    if(response.error) {
+      return res.json({
+        error: response.error,
+        status: response.status
+      });
+    }
+
+    return res.json({
+      user: {
+        "_id": response.user._id,
+        "email": response.user._id,
+        "username": response.user._id,
+      },
+      status: response.status,
+      token: response.token
+    });
   }
 }
 

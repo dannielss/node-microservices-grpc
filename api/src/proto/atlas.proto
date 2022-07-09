@@ -8,6 +8,7 @@ service UserService {
   rpc getAllUsers(GetAllUsersRequest) returns (UsersResponse);
   rpc updateUser(UpdateUserRequest) returns (UpdateUserResponse);
   rpc deleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc authenticate(AuthenticateUserRequest) returns (AuthenticateUserResponse);
 }
 
 
@@ -24,6 +25,7 @@ message GetUserByIdRequest {
 
 message UserResponse {
   User user = 1;
+  string error = 3;
   string status = 2;
 }
 
@@ -61,4 +63,16 @@ message DeleteUserRequest {
 message DeleteUserResponse {
   string message = 1;
   string status = 2;
+}
+
+message AuthenticateUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message AuthenticateUserResponse {
+  User user = 1;
+  string status = 2;
+  string token = 3;
+  string error = 4;
 }
