@@ -15,6 +15,7 @@ router.get('/users', UserController.show);
 router.put('/user/:id', UserController.update);
 router.delete('/user/:id', UserController.remove);
 
+router.get('/order/:id', OrderController.index);
 router.post('/order/new', OrderController.store);
 
 module.exports = router;
