@@ -4,6 +4,7 @@ package hermesPackage;
 
 service OrderService {
   rpc createOrder(CreateOrderRequest) returns (OrderResponse);
+  rpc getOrderById(GetOrderByIdRequest) returns (OrderResponse);
 }
 
 message Order {
@@ -17,8 +18,14 @@ message CreateOrderRequest {
 }
 
 message OrderResponse {
-  string status = 1;
-  repeated Order order = 2;
-  float price = 3;
-  string user_id = 4;
+  string _id = 1;
+  string user_id = 2;
+  repeated Order order = 3;
+  float price = 4;
+  string status = 5;
+  string error = 6;
+}
+
+message GetOrderByIdRequest {
+  string _id = 1;
 }
