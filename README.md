@@ -10,6 +10,7 @@
 <p align="center">
   <a href="#rocket-Technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#wrench-Configuration">Configuration</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#computer-Architecture">Architecture</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#gift-Others-commands">Others</a>&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -41,6 +42,17 @@ $ yarn
 ```sh
 $ docker-compose up
 ```
+
+## :computer: Architecture
+
+<details>
+  <summary>Click to see the architecture</summary>
+  
+  <h3 align="center">
+    <img src="https://user-images.githubusercontent.com/58083563/178169290-9d747fb4-a10a-47d5-bc4d-9e2e606ebbb0.png" alt="architecture" />
+  </h3>
+  
+</details>
 
 ## :gift: Others commands
 ```sh
