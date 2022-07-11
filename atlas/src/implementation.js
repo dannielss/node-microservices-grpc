@@ -5,6 +5,13 @@ module.exports =  {
   async getUserById(req, res) {
     const user = await User.findById(req.request._id);
 
+    if(!user) {
+      return res(null, {
+        error: 'User not found',
+        status: 'error'
+      });
+    }
+
     return res(null, {
       user,
       status: 'ok'

@@ -4,7 +4,14 @@ class UserController {
   async index(req, res) {
     const { id } = req.params;
 
-    const response = await AtlasClient.getOrderById({ _id: id });
+    const response = await AtlasClient.getUserById({ _id: id });
+
+    if(response.error) {
+      return res.json({
+        error: response.error,
+        status: response.status
+      });
+    }
 
     return res.json({
       user: {
