@@ -1,9 +1,7 @@
 <h3 align="center">
   <img src="https://user-images.githubusercontent.com/58083563/113485072-358ca080-9482-11eb-855f-43454a00b3bf.png" alt="Node JS" width="150" />&nbsp&nbsp&nbsp&nbsp
-  <img src="https://user-images.githubusercontent.com/58083563/113485102-5a811380-9482-11eb-84cc-e8a26304572b.png" alt="Mongo DB" width="200" />
-  <img src="https://user-images.githubusercontent.com/58083563/112740890-e95bd080-8f56-11eb-9f5f-36f83d940cc2.png" alt="Docker" width="150" />&nbsp&nbsp&nbsp&nbsp
   &nbsp
-  <img src="https://user-images.githubusercontent.com/58083563/178167993-354f4ef7-e9ba-49c8-9dd8-ad8b75bece37.png" alt="gRPC" width="100" />
+  <img src="https://user-images.githubusercontent.com/58083563/178167993-354f4ef7-e9ba-49c8-9dd8-ad8b75bece37.png" alt="gRPC" width="150" />
 </h3>
 <h3 align="center">Node - Microservices + gRPC</h3>
 <br>
