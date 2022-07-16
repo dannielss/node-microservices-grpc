@@ -63,5 +63,5 @@ or using yarn
 
 ```sh
 # Run express server locally
-$ npm run dev
+$ yarn dev
 ```
